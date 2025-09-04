@@ -1,0 +1,23 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/store"
+    },
+    {
+      "path": "./apps/admin"
+    },
+    {
+      "path": "./packages/ui"
+    },
+    {
+      "path": "./packages/utils"
+    },
+    {
+      "path": "./packages/types"
+    },
+    {
+      "path": "./packages/config"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "ecommerce-platform",
+  "version": "1.0.0",
+  "description": "Ecommerce platform with store frontend and admin panel",
+  "private": true,
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "type-check": "turbo run type-check",
+    "clean": "turbo run clean && rimraf .turbo",
+    "format-file": "prettier --write",
+    "lint-file": "eslint --fix"
+  },
+  "devDependencies": {
+    "turbo": "^1.13.4",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.1"
+  },
+  "packageManager": "pnpm@8.15.6",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}

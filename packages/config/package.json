@@ -1,0 +1,39 @@
+{
+  "name": "@ecommerce/config",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "module": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./eslint": "./eslint.js",
+    "./prettier": "./prettier.js",
+    "./typescript": "./tsconfig.json"
+  },
+  "files": [
+    "dist/**",
+    "eslint.js",
+    "prettier.js",
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "lint": "eslint \"**/*.ts*\"",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
+  }
+}

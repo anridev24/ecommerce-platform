@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pnpm format-file \"$file_path\" && pnpm lint-file \"$file_path\" && pnpm type-check"
+          }
+        ]
+      },
+      {
+        "matcher": "MultiEdit",
+        "hooks": [
+          {
+            "type": "command", 
+            "command": "pnpm format-file \"$file_path\" && pnpm lint-file \"$file_path\" && pnpm type-check"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pnpm format-file \"$file_path\" && pnpm lint-file \"$file_path\" && pnpm type-check"
+          }
+        ]
+      }
+    ]
+  }
+}
