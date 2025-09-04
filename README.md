@@ -24,7 +24,7 @@ ecommerce-platform/
 
 - **Package Manager**: pnpm (workspaces)
 - **Build Tool**: Turborepo
-- **Framework**: Next.js 14+ (App Router)
+- **Framework**: Next.js 15 (App Router)
 - **Styling**: Tailwind CSS + shadcn/ui
 - **Language**: TypeScript
 - **Linting**: ESLint

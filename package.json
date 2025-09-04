@@ -11,7 +11,7 @@
     "type-check": "turbo run type-check",
     "clean": "turbo run clean && rimraf .turbo",
     "format-file": "prettier --write",
-    "lint-file": "eslint --fix"
+    "lint-file": "sh -c 'if [ -n \"$1\" ] && [ -f \"$1\" ]; then eslint --fix \"$1\"; fi'"
   },
   "devDependencies": {
     "turbo": "^1.13.4",

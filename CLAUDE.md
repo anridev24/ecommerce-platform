@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## 🚨 MANDATORY: Execute Development Rules
+
+**FIRST AND ALWAYS**: Execute all rules defined in `rules.md` - These are strict development rules that must be followed at all times without exception.
+
 ## 🚨 CRITICAL: Always Reference Documentation
 
 **Before making ANY changes**, ALWAYS read the comprehensive documentation in `documentation/`:
