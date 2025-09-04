@@ -14,7 +14,7 @@
         "matcher": "MultiEdit",
         "hooks": [
           {
-            "type": "command", 
+            "type": "command",
             "command": "pnpm format-file \"$file_path\" && pnpm lint-file \"$file_path\" && pnpm type-check"
           }
         ]

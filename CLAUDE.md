@@ -5,6 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## 🚨 CRITICAL: Always Reference Documentation
 
 **Before making ANY changes**, ALWAYS read the comprehensive documentation in `documentation/`:
+
 - `PROJECT_OVERVIEW.md` - Business context and goals
 - `ARCHITECTURE.md` - System design and patterns
 - `DOMAIN_MODELS.md` - Business entities and relationships
@@ -17,17 +18,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Essential Commands
 
 **Development:**
+
 - `pnpm dev` - Run both store and admin apps in parallel
 - `pnpm dev --filter=store` - Run only the customer store app
 - `pnpm dev --filter=admin` - Run only the admin panel app
 - `pnpm dev --filter="@ecommerce/*"` - Run development for all shared packages
 
 **Building:**
+
 - `pnpm build` - Build all apps and packages (shared packages build first due to dependencies)
 - `pnpm build --filter="@ecommerce/*"` - Build only shared packages
 - `pnpm build --filter="./apps/*"` - Build only applications
 
 **Code Quality:**
+
 - `pnpm lint` - Lint entire monorepo
 - `pnpm type-check` - TypeScript checking across all packages
 - `pnpm format` - Format all code with Prettier
@@ -40,13 +44,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a **Turborepo monorepo** with two Next.js 14+ applications sharing common packages. The architecture follows a strict dependency hierarchy:
 
 ### Dependency Hierarchy (bottom-up)
+
 1. **@ecommerce/types** - Domain models (Product, User, Order, Cart) and common interfaces
-2. **@ecommerce/config** - Shared ESLint, Prettier, and TypeScript configurations  
+2. **@ecommerce/config** - Shared ESLint, Prettier, and TypeScript configurations
 3. **@ecommerce/utils** - Utility functions for formatting, validation, and API clients
 4. **@ecommerce/ui** - Reusable shadcn/ui components with Tailwind CSS
 5. **Applications** - Store (customer-facing) and Admin (management interface)
 
 ### Critical Architectural Rules
+
 - **Never create circular dependencies** between packages
 - **Always import from package entry points** (index.js/ts), not internal files
 - **Shared packages must build before applications** (handled by Turborepo)
@@ -54,6 +60,7 @@ This is a **Turborepo monorepo** with two Next.js 14+ applications sharing commo
 - **UI package depends on utils and types** for consistent component APIs
 
 ### Monorepo Structure
+
 - `apps/store/` - Customer-facing Next.js app (product browsing, cart, checkout)
 - `apps/admin/` - Admin Next.js app (product/order/customer management)
 - `packages/types/src/` - Domain models: product.ts, user.ts, order.ts, common.ts
@@ -62,7 +69,9 @@ This is a **Turborepo monorepo** with two Next.js 14+ applications sharing commo
 - `packages/config/` - Shared configurations for ESLint, Prettier, TypeScript
 
 ### Next.js App Architecture
+
 Both apps use **Next.js 14+ App Router** with:
+
 - `src/app/` - App Router pages and layouts
 - `src/components/ui/` - App-specific shadcn/ui components
 - `src/lib/utils.ts` - App-specific utility functions
@@ -70,21 +79,24 @@ Both apps use **Next.js 14+ App Router** with:
 ### Key Development Patterns
 
 **When to use shared vs app-specific code:**
+
 - **Shared packages**: Logic used by both apps, consistent business rules, reusable components
 - **App-specific**: Unique user experiences, specialized pages, app-specific business logic
 
 **Import patterns:**
+
 ```typescript
 // Correct - from package entry points
-import { Product, User } from '@ecommerce/types'
-import { formatPrice } from '@ecommerce/utils'
-import { Button } from '@ecommerce/ui'
+import { Product, User } from "@ecommerce/types"
+import { formatPrice } from "@ecommerce/utils"
+import { Button } from "@ecommerce/ui"
 
 // Wrong - don't import from internal files
-import { Product } from '@ecommerce/types/src/product'
+import { Product } from "@ecommerce/types/src/product"
 ```
 
 **Working with packages:**
+
 - **Modify types first** when changing domain models - other packages depend on these
 - **Test in both apps** when changing shared packages
 - **Build packages** (`pnpm build --filter="@ecommerce/*"`) before building apps when making changes
@@ -92,8 +104,9 @@ import { Product } from '@ecommerce/types/src/product'
 ## Domain Model Context
 
 The ecommerce domain centers around:
+
 - **Products** with variants, inventory, and SEO metadata
-- **Users** with roles (customer/admin/staff) and multiple addresses  
+- **Users** with roles (customer/admin/staff) and multiple addresses
 - **Orders** with status workflows (pending → confirmed → shipped → delivered)
 - **Carts** for session-based shopping before checkout
 
@@ -113,6 +126,7 @@ These models are defined in `@ecommerce/types` and used throughout both applicat
 ## Documentation Maintenance Rules
 
 **MANDATORY**: After every significant change, update the relevant documentation:
+
 - **New features**: Update `DOMAIN_MODELS.md` if business logic changes
 - **Architecture changes**: Update `ARCHITECTURE.md` and `DEVELOPMENT_PATTERNS.md`
 - **New patterns**: Update `DEVELOPMENT_PATTERNS.md` and `TASK_GUIDELINES.md`
