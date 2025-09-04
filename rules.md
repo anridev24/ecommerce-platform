@@ -34,10 +34,19 @@ This file contains strict development rules that must be followed at all times w
 
 **When designing database schemas**, always reference and follow **`subrules/database.md`** for comprehensive ecommerce database design patterns including table structures, relationships, indexing strategies, and data integrity rules.
 
+## MCP In-Memoria Rules
+
+1. **Always check learning status first** - Use `get_learning_status` before starting complex tasks
+2. **Auto-learn when needed** - Use `auto_learn_if_needed` if intelligence is missing or stale
+3. **Use semantic search** - Leverage `search_codebase` for finding code by meaning, not just keywords
+4. **Get pattern recommendations** - Use `get_pattern_recommendations` before implementing new features
+5. **Contribute insights back** - Use `contribute_insights` to help improve the knowledge base
+
 ## Development Workflow Rules
 
 1. **Read documentation first** - Always check existing docs before starting work
 2. **Plan before coding** - Use TodoWrite tool for complex tasks
-3. **Test in both apps** - When changing shared packages
-4. **Build incrementally** - Shared packages first, then applications
-5. **Update relevant documentation** - After making significant changes
+3. **Check intelligence status** - Use MCP In-Memoria tools to understand codebase context
+4. **Test in both apps** - When changing shared packages
+5. **Build incrementally** - Shared packages first, then applications
+6. **Update relevant documentation** - After making significant changes

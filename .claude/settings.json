@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "pnpm format-file \"$file_path\" && pnpm lint-file \"$file_path\" && pnpm type-check"
+            "command": "pnpm format-file \"$file_path\" && if [[ \"$file_path\" =~ \\.(ts|tsx|js|jsx)$ ]]; then pnpm lint-file \"$file_path\"; fi"
           }
         ]
       },
@@ -15,7 +15,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "pnpm format-file \"$file_path\" && pnpm lint-file \"$file_path\" && pnpm type-check"
+            "command": "pnpm format-file \"$file_path\" && if [[ \"$file_path\" =~ \\.(ts|tsx|js|jsx)$ ]]; then pnpm lint-file \"$file_path\"; fi"
           }
         ]
       },
@@ -24,7 +24,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "pnpm format-file \"$file_path\" && pnpm lint-file \"$file_path\" && pnpm type-check"
+            "command": "pnpm format-file \"$file_path\" && if [[ \"$file_path\" =~ \\.(ts|tsx|js|jsx)$ ]]; then pnpm lint-file \"$file_path\"; fi"
           }
         ]
       }

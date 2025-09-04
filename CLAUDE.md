@@ -127,6 +127,44 @@ These models are defined in `@ecommerce/types` and used throughout both applicat
 7. **Use Turborepo filtering** to work on specific parts of the monorepo efficiently
 8. **Update documentation** after any significant architectural changes or new patterns
 
+## MCP In-Memoria Integration
+
+This project uses the **In-Memoria MCP server** for intelligent codebase analysis and context preservation. The AI assistant MUST leverage these tools:
+
+### Core Intelligence Tools (Use First)
+
+- `get_learning_status` - Check existing intelligence data for the project
+- `auto_learn_if_needed` - Automatically learn from codebase if intelligence is missing/stale
+- `quick_setup` - Initialize In-Memoria for new projects or after major changes
+
+### Analysis & Search Tools (Use Frequently)
+
+- `analyze_codebase` - Get architectural overview, complexity metrics, patterns
+- `search_codebase` - Semantic search that finds code by meaning, not just keywords
+- `get_semantic_insights` - Discover code relationships and architectural concepts
+- `get_file_content` - Retrieve files with rich metadata and analysis
+- `get_project_structure` - Understand directory hierarchy and patterns
+
+### Pattern Intelligence Tools (Use for Development)
+
+- `get_pattern_recommendations` - Get coding suggestions matching established style
+- `predict_coding_approach` - Predict solutions based on learned patterns
+- `get_developer_profile` - Access learned coding preferences and decision patterns
+
+### Documentation & Learning Tools
+
+- `generate_documentation` - Create docs that understand project patterns
+- `learn_codebase_intelligence` - Manually trigger analysis after major changes
+- `contribute_insights` - Allow AI to add observations back to knowledge base
+
+### Monitoring Tools
+
+- `get_system_status` - Health check and component status
+- `get_intelligence_metrics` - Quality metrics of learned patterns
+- `get_performance_status` - System performance and benchmarking
+
+**MANDATORY WORKFLOW**: Always start complex tasks by checking `get_learning_status` and running `auto_learn_if_needed` if intelligence is missing. Use semantic search tools before making architectural decisions.
+
 ## Documentation Maintenance Rules
 
 **MANDATORY**: After every significant change, update the relevant documentation:
