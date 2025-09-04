@@ -26,18 +26,13 @@ This file contains strict development rules that must be followed at all times w
 4. **Test before pushing** - Ensure all tests pass and builds succeed
 5. **Update documentation with changes** - Keep docs in sync with code
 
-## Next.js 15 Rules
+## Technology-Specific Rules
 
-1. **Use Server Components by default** - Only add 'use client' when necessary for interactivity
-2. **Fetch data in Server Components** - Use async/await directly, leverage automatic deduplication
-3. **Configure caching strategically** - Use `cache: 'force-cache'` (default), `no-store`, or `revalidate` options
-4. **Implement Suspense boundaries** - Wrap async components for better loading UX
-5. **Use App Router file conventions** - page.tsx, layout.tsx, loading.tsx, error.tsx, not-found.tsx
-6. **Access request data properly** - Use `headers()`, `cookies()`, and `params` (await them in components)
-7. **Handle dynamic routes correctly** - Always await `params` prop in dynamic route components
-8. **Optimize Client Components** - Use `'use client'` only at boundaries, pass data from Server Components
-9. **Implement proper error boundaries** - Use error.tsx files for route-level error handling
-10. **Use Link prefetching wisely** - Control prefetch behavior with prefetch prop (auto/true/false)
+**When working with Next.js**, always reference and follow **`subrules/nextjs.md`** for comprehensive Next.js 15 best practices including Server Components, App Router, caching strategies, and performance patterns.
+
+**When working with Supabase**, always reference and follow **`subrules/supabase.md`** for comprehensive Supabase best practices including RLS optimization, authentication patterns, Edge Functions, and security guidelines.
+
+**When designing database schemas**, always reference and follow **`subrules/database.md`** for comprehensive ecommerce database design patterns including table structures, relationships, indexing strategies, and data integrity rules.
 
 ## Development Workflow Rules
 
